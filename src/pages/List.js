@@ -3,12 +3,14 @@ import { SafeAreaView, ScrollView, Image, AsyncStorage, StyleSheet } from 'react
 import logo from '../assets/logo.png';
 import SpotList from '../components/SpotList';
 
+
 export default function List(){
 
     const [techs, setTechs] = useState([]);
 
     useEffect(()=>{
         AsyncStorage.getItem('techs').then(storedTechs => {
+            //console.log(storedTechs);
             const techsArray = storedTechs.split(',').map(tech => tech.trim()); 
             setTechs(techsArray);
         });
